@@ -1,0 +1,105 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9; /* Color de fondo pastel */
+}
+
+
+    .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid #ddd;
+    border-radius: 10px;
+    background-color: #55f1f161;
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333; /* Color de texto */
+}
+
+/* Estilos para los campos de entrada */
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #fff; /* Color de fondo blanco */
+    color: #333; /* Color de texto */
+    transition: background-color 0.3s, color 0.3s; /* Efecto hover */
+}
+
+/* Efecto hover */
+input[type="text"]:hover,
+input[type="tel"]:hover,
+input[type="date"]:hover,
+input[type="email"]:hover,
+select:hover {
+    background-color: #f0f0f0; /* Color de fondo al pasar el ratón */
+    color: #555; /* Color de texto al pasar el ratón */
+}
+
+/* Estilos para los botones */
+button {
+    background-color: #ffc0cb; /* Color pastel */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Efecto hover */
+}
+
+/* Efecto hover */
+button:hover {
+    background-color: #ff99b3; /* Color pastel al pasar el ratón */
+}
+
+/* Estilos para el resultado */
+#resultadoTotal {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff; /* Color de fondo blanco */
+    color: #333; /* Color de texto */
+    text-align: center;
+    font-size: 35px;
+}
+
+/* Media queries para responsive design */
+/* Tablets en modo horizontal y pantallas más grandes */
+@media only screen and (min-width: 768px) {
+    input[type="text"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="email"],
+    select,
+    button {
+        width: 50%;
+    }
+}
+
+/* Móviles en modo vertical */
+@media only screen and (max-width: 480px) {
+    input[type="text"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="email"],
+    select,
+    button {
+        width: 100%;
+    }
+}
