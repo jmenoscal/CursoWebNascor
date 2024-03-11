@@ -8,7 +8,7 @@
 <body>
     <?php
     //creamos el array
-    $listanombres = array("Lady" , "Linda" , "Pablo" , "Leonor" , "Hugo");
+    $listanombres = array("Lady" , "Loco" , "Pablo" , "Leonor" , "Hugo");
     foreach ($listanombres as $nombre) {
         echo "$nombre, "; 
     }
