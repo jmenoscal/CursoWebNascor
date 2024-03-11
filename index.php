@@ -9,7 +9,7 @@
 <h1>PAGINA DE PRUEBAS DE CODIGOS PHP </h1>
 <?php
 
-echo "Hello World! Bienvenido portal de prueba de codigos <br> <br>";
+echo "Hello World! Bienvenido portal de prueba de codigos: <br> <br>";
 
 echo "<h1>Prueba de función para realizar operación de calculo</h1> <br>";
 
