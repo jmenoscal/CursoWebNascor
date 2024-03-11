@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultados del Formulario</title>
+    <title>Resultados del Formulario OK</title>
 </head>
 <body>
     <h1>Resultados del Formulario</h1>

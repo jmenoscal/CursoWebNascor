@@ -11,7 +11,7 @@
 
 echo "Hello World! Bienvenido portal de prueba de codigos: <br> <br>";
 
-echo "<h1>Prueba de función para realizar operación de calculo</h1> <br>";
+echo "<h1>Prueba de función para realizar operación de calculo.</h1> <br>";
 
 $a = 5;
 $b = 3;
