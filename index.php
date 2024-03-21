@@ -138,8 +138,25 @@ foreach ($nombres as $nombre) {
     echo $nombre . " ";
 }
 // Imprime: Juan María Pedro
-echo "<br>";
+echo "<br><br>";
 
+// pruebas de comprobacion ISSET
+echo "<h2>Ejemplo dec comprobacion si una variable esta declarada con ISSET:</h2>";
+$nombre = "Juan"; // Definimos una variable con un valor
+
+if (isset($nombre)) {
+    echo "La variable \$nombre está definida y su valor es: " . $nombre. "<br>";
+} else {
+    echo "La variable \$nombre no está definida.";
+}
+
+//OTRA MANERA DE HACERLO
+
+if (!isset($nombre)) { 
+    echo "La variable \$nombre no está definida.";
+    } else {
+    echo "La variable \$nombre está definida y su valor es: " . $nombre;
+}
 
 
 exit;

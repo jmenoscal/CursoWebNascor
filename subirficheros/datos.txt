@@ -1,0 +1,6 @@
+Nombre: joel lady
+Email: lady@gmail.com
+Cursos seleccionados:
+- Curso 1
+- Curso 2
+- Curso 3
