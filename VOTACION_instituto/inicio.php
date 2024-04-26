@@ -11,7 +11,7 @@
 
 <form method="post" action="votacion.php">
 
-<p align="left"> <font color="blue" size="3" face="Times New Roman"><h4>Crees que el barça ganará la liga</h4></font></p>
+<p align="left"> <font color="blue" size="3" face="Times New Roman"><h4>Crees que el barça ganará la liga??</h4></font></p>
 
 
 <p align="left"> <font color="blue" size="3" face="Times New Roman"> 
