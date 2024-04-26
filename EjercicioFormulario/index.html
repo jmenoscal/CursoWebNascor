@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="estilosformulario.css">
+    <title>Ejercico Formulario DOM</title>
+</head>
+<body>
+<div class="container">
+    <h1>Formulario de Registro</h1>
+<br>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombreInput" placeholder="Introduce tu Nombre">
+    <br>
+    <label for="apellido1">Primer apellido:</label>
+    <input type="text" id="apellido1"  placeholder="Primer Apellido"required>
+<br>
+    <label for="apellido2">Segundo apellido:</label>
+    <input type="text" id="apellido2"  placeholder="Segundo Apellido" required>
+<br>
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefonoInput" placeholder="Introduce tu Teléfono">
+<br>
+    <label for="fechaNacimiento">Fecha de nacimiento:</label>
+    <input type="date" id="fechaNacimiento" required>
+<br>
+    <label for="email">Email:</label>
+    <input type="email" id="email"  placeholder="ejemplo@dominio.com" required>
+<br>
+    <label>Turno:</label>
+        <input type="radio" id="turno" name="turno" value="Mañana">
+        <label for="manana">Mañana</label>
+         <input type="radio" id="tarde" name="turno" value="Tarde">
+    <label for="tarde">Tarde</label>
+<br>
+    <label for="curso">Seleccione un Curso</label>
+    <select id="curso">
+       <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="js">JavaScript</option>
+    </select>
+<br>
+    <input type="checkbox" id="privacidad" required>
+    <label for="privacidad">Acepto la cláusula de privacidad</label>
+<br>
+    <button type="submit" onclick="obtenerDatos()">Enviar y Mostrar Datos</button>
+     <div id="resultadoTotal"></div>
+</div>
+<script src="scriptdatos.js"></script>
+</body>
+</html>
