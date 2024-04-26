@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 15px;
+            text-align: left;
+        }
+        img {
+            width: 50px;
+            height: 50px;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Datos Obtenidos de BBDD</h1>
+    <!--URL API http://localhost/php_host/mysql/API/select.php -->
+    <div id="ver_resultado"></div>
+    <script>
+
+        let urlBase = "http://localhost/php_host/mysql/";
+
+        function bucle(datos){
+            let elDiv = document.getElementById("ver_resultado");
+            let html="<table><tr><th>ID</th> <th>Titulo</th> <th>Texto</th> <th>Fecha</th> <th>Categoria</th> <th>Imagen</th></tr>";
+            console.log(datos);
+            for(let i=0; i<datos.length; i++){
+                html+= "<tr><td>" + datos[i].id + "</td>";
+                html+= "<td>" + datos[i].titulo + "</td>";
+                html+= "<td>" + datos[i].texto + "</td>";
+                html+= "<td>" + datos[i].fecha + "</td>";
+                html+= "<td>" + datos[i].categoria + "</td>";
+                html+= "<td>" + "<img src='" + urlBase + "Ejercicio_Mysql_con_require_db_utils/"  + datos[i].imagen + "' alt='imagen'></td></tr>";
+               // html+= "<img src='" + urlBase + "Ejercicio_Mysql_con_require_db_utils/" + datos[i].imagen + "' height='150'> <br>";
+            }
+            html += "</table>";
+            elDiv.innerHTML = html;
+        }
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let datos = JSON.parse(this.responseText);
+                bucle(datos);
+            }
+        }
+        xmlhttp.open("GET", "http://localhost/php_host/mysql/API/select.php", true);
+        xmlhttp.send();
+    </script>
+</body>
+
+</html>
+
+
+<!--<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    
+    <div id="ver_resultado"></div>
+    <script>
+        function bucle(datos){
+            let elDiv = document.getElementById("ver_resultado");
+            let html="";
+            console.log(datos);
+            for(let i=0; i<datos.length; i++){
+            html+= datos[i].id+ ' | ';
+            html+= datos[i].titulo+ ' | ';
+            html+= datos[i].texto+ ' | ';
+            html+= datos[i].fecha+ ' | ';
+            html+= datos[i].categoria+ ' <hr> ';
+        }
+        elDiv.innerHTML = html;
+        }
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("ver_resultado").innerHTML = this.responseText;
+                let = JSON.parse(responseText);
+                bucle($dato);
+            }
+        }
+        xmlhttp.open("GET", "http://localhost/php_host/mysql/API/select.php", true);
+        xmlhttp.send();
+    </script>
+</body>
+
+</html>
+
+//OTRA VERSION
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 15px;
+            text-align: left;
+        }
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="ver_resultado"></div>
+    <script>
+        function bucle(datos){
+            let html = `
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Titulo</th>
+                        <th>Texto</th>
+                        <th>Fecha</th>
+                        <th>Categoria</th>
+                        <th>Imagen</th>
+                    </tr>`;
+            for(let i = 0; i < datos.length; i++) {
+                html += `
+                    <tr>
+                        <td>${datos[i].id}</td>
+                        <td>${datos[i].titulo}</td>
+                        <td>${datos[i].texto}</td>
+                        <td>${datos[i].fecha}</td>
+                        <td>${datos[i].categoria}</td>
+                        <td><img src="${datos[i].imagen}" alt="imagen"></td>
+                    </tr>`;
+            }
+            html += `</table>`;
+            document.getElementById("ver_resultado").innerHTML = html;
+        }
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                let datos = JSON.parse(this.responseText);
+                bucle(datos);
+            }
+        }
+        xmlhttp.open("GET", "http://localhost/php_host/mysql/API/select.php", true);
+        xmlhttp.send();
+    </script>
+</body>
+
+</html>
+
+-->

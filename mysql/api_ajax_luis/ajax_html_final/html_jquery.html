@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajax map</title>
+    <style>
+        #escribiendo {
+            font-size: 20px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="escribiendo"></div>
+
+    <script>
+        let html = "";
+        let urlBase = "http://localhost:8888/PHP-curso-nascor-ifcd0210/MySQL/";
+        $.get(urlBase + "/api/select.php", function(datos){
+           $.each(datos, function(){
+            html += "<img src='" + urlBase + "Ejercicio_user_noticias/" + this.imagen + "' height='150'> <br>";
+                html += this.id + ' | ';
+                html += this.titulo + ' | ';
+                html += this.texto + ' | ';
+                html += this.fecha + ' | ';
+                html += this.categoria + '<hr>';
+           })
+           $('#escribiendo').html(html);
+        })
+    </script>
+</body>
+</html>

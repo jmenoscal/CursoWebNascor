@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #escribiendo {
+            font-size: 20px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!--URL API http://localhost:8888/PHP-curso-nascor-ifcd0210/MySQL/api/select.php -->
+    <div id="escribiendo"></div>
+
+    <script>
+        let urlBase = "http://localhost:8888/PHP-curso-nascor-ifcd0210/MySQL/";
+        let urlImages = "http://localhost:8888/PHP-curso-nascor-ifcd0210/MySQL/Ejercicio_user_noticias/"
+        let html = ""; 
+        
+        /*  function bucle(datos) {
+            
+            let html = "";
+            let elDiv = document.getElementById("escribiendo");
+            console.log(datos);
+            for (let i = 0; i < datos.length; i++) {
+                html += "<img src='" + urlBase + "Ejercicio_user_noticias/" + datos[i].imagen + "' height='150'> <br>";
+                html += datos[i].id + ' | ';
+                html += datos[i].titulo + ' | ';
+                html += datos[i].texto + ' | ';
+                html += datos[i].fecha + ' | ';
+
+                html += datos[i].categoria + '<hr>';
+            }
+            elDiv.innerHTML = html;
+        }
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function (jSon) {
+            if (this.readyState == 4 && this.status == 200) {
+                // document.getElementById("escribiendo").innerHTML = this.responseText;
+                // Bucle.(
+                let datos = JSON.parse(this.responseText);
+                bucle(datos);
+            }
+        }
+        xmlhttp.open("GET", urlBase + "/api/select.php", true);
+        xmlhttp.send();*/
+        $.get(urlBase + "/api/select.php", function(datos){
+         
+        }).done(function(data){
+            let html="";
+            $.each(datos, function(){
+                html += "<img src='" + urlImages + this.imagen + "' height='150'> <br>";
+                html += this.id + ' | ';
+                html += this.titulo + ' | ';
+                html += this.texto + ' | ';
+                html += this.fecha + ' | ';
+                html += this.categoria + '<hr>';
+            })
+            $('#escribiendo').html(html)   
+        }).fail(function(){
+            
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+
+<h2><p align="center"><font color="red" face="Times New Roman"> GRÁFICA DE LA ENCUESTA </font></p></h2>
+
+<body>
+<font color="orange" size="3" face="Times New Roman"><br><h3>Crees que el barça ganará la liga</h3></font>
+
+<?php
+
+$archivo1 = "si.txt";           // Nombramos la variable $archivo1 y 2 como el nombre de los ficheros
+$archivo2 = "no.txt";
+
+$abre1 = fopen($archivo1, "r");    // aqui abrimon los ficheros en modo de lectura
+$abre2 = fopen($archivo2, "r");    
+
+$total1 = fread($abre1, filesize($archivo1)+1);   // aqui lees los archivos
+$total2 = fread($abre2, filesize($archivo2)+1);   // (recuerda agregar otras opciones si las pusiste)
+
+
+fclose($abre1);     // aqui cerramos los ficheros   
+fclose($abre2);     
+
+
+
+  
+$votos=$total1+$total2;   //  si implementariamos mas opciones las sumariamos aquí
+
+
+$por1=$total1*100/$votos;   // los porcentajes (RECUERDA LOS DATOS AGREGADOS)
+$por1=intval ( $por1 ,10);
+
+$por2=$total2*100/$votos;
+$por2=intval ( $por2 ,10);
+
+
+echo "<br><br>";
+echo "SI: <b>$total1</b> votos - <b>$por1 %</b> ";   // OPCION 1 CON NUMERO DE VOTOS Y PORCENTAJE
+echo "<IMG HEIGHT=15 WIDTH=$por1 SRC=blue.png>";  // MUESTRA OPCION 1 CON BARRA DE IMAGEN
+echo "<br>";
+echo "<br><br>";
+
+echo "NO: <b>$total2</b> votos - <b>$por2 %</b> ";   // OPCION 2 CON NUMERO DE VOTOS Y PORCENTAJE
+echo "<IMG HEIGHT=15 WIDTH=$por2 SRC=red.png>";  // MUESTRA OPCION 2 CON BARRA DE IMAGEN
+echo "<br>";
+echo "<br><br>";
+
+echo "Total Votos: <b>$votos</b>";
+echo "<br><br>";
+
+?>
+
+<p><a href="inicio.php" style="color: green; text-decoration: underline">Ver Resultados</a></p>
+
+</body>
+</html>

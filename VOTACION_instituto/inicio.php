@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+
+<h2><p align="center"><font color="red" face="Times New Roman"> ENCUESTA </font></p></h2>
+
+<form method="post" action="votacion.php">
+
+<p align="left"> <font color="blue" size="3" face="Times New Roman"><h4>Crees que el barça ganará la liga</h4></font></p>
+
+
+<p align="left"> <font color="blue" size="3" face="Times New Roman"> 
+<input type=radio name="op" Value="si" checked="checked">Si  </p>
+
+<p align="left"> <font color="red" size="3" face="Times New Roman">   
+<input type=radio name="op" Value="no"> No </p><br>
+    
+<input type="submit" value="Votar" class="botones">
+
+<br>
+<p><a href="grafica.php" style="color: green; text-decoration: underline">Ver Resultados</a></p>
+
+</form>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

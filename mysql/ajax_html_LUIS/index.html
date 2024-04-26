@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #escribiendo {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--URL API http://localhost:8888/PHP-curso-nascor-ifcd0210/MySQL/api/select.php -->
+    <div id="escribiendo"></div>
+
+    <script>
+        let urlBase = "http://localhost:8888/PHP-curso-nascor-ifcd0210/MySQL/";
+        function bucle(datos) {
+            let elDiv = document.getElementById("escribiendo");
+            let html = "";
+
+            console.log(datos);
+            for (let i = 0; i < datos.length; i++) {
+                html += "<img src='" + urlBase + "Ejercicio_user_noticias/" + datos[i].imagen + "' height='150'> <br>";
+                html += datos[i].id + ' | ';
+                html += datos[i].titulo + ' | ';
+                html += datos[i].texto + ' | ';
+                html += datos[i].fecha + ' | ';
+                html += datos[i].categoria + ' | ';
+                html += datos[i].imagen + '<hr>';
+            }
+            elDiv.innerHTML = html;
+        }
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function (jSon) {
+            if (this.readyState == 4 && this.status == 200) {
+                // document.getElementById("escribiendo").innerHTML = this.responseText;
+                // Bucle.(
+                let datos = JSON.parse(this.responseText);
+                bucle(datos);
+            }
+        }
+        xmlhttp.open("GET", urlBase + "/api/select.php", true);
+        xmlhttp.send();
+    </script>
+</body>
+
+</html>

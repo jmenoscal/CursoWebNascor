@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map y arrows</title>
+</head>
+
+<body>
+    <div id="escribiendo"></div>
+
+    <script>
+        function dameDatos(item) {
+            return [item.id, ", " + item.titulo, ", " + item.texto, ", " + item.fecha, ", " + item.categoria, ", " + item.imagen + "<hr>"];
+        }
+        let html = "";
+        let urlBase = "http://localhost:8888/PHP-curso-nascor-ifcd0210/MySQL/";
+        
+        
+        
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                // document.getElementById("escribiendo").innerHTML = this.responseText;
+                // Bucle.(
+                let datos = JSON.parse(this.responseText);
+                document.getElementById("escribiendo").innerHTML = datos.map(dameDatos);
+            }
+        }
+        xmlhttp.open("GET", urlBase + "/api/select.php", true);
+        xmlhttp.send();
+    </script>
+</body>
+
+</html>

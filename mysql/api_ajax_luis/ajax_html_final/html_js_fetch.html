@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map y arrows</title>
+</head>
+
+<body>
+    <div id="escribiendo"></div>
+
+    <script>
+        // map
+        function dameDatos(item) {
+            return [item.id + " | " + item.titulo + " | " + item.texto + " | " + item.fecha + " | " + item.categoria, " | " + item.imagen + "<hr>"];
+        }
+
+
+        // error desde fetch
+        function errDatos(err) {
+            console.log('muestro error', err);
+        }
+        
+       // Recogemos los dtos, ha salido bien.
+        async function positivo(response) {
+            
+            let text = await response.json();
+            console.log(text);
+            if (response.ok) {
+                document.getElementById("escribiendo").innerHTML = text.map(dameDatos);
+            } else {
+                showError('status code: ' + response.status);
+            }
+        }
+
+        let html = "";
+        let urlBase = "http://localhost:8888/PHP-curso-nascor-ifcd0210/MySQL/";
+        fetch(urlBase + "api/select.php").
+            then(positivo).
+            catch(errDatos)
+        </script>
+</body>
+
+</html>

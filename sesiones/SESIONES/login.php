@@ -12,7 +12,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $_SESSION['datosUsuario'] = $_POST;
         //   header("Location: contenido.php"); 
         /*  $_SESSION['datosUsuario'] = $_POST;
-          echo "Bienvenido" .$_SESSION['datosUsuario']['nomre'];*/
+          echo "Bienvenido" .$_SESSION['datosUsuario']['nombre'];*/
     }
 }
 //copy('https://cdn.pixabay.com/photo/2023/08/11/04/51/fireworks-8182800_1280.jpg', 'miimagenEEEEE.jpg');
@@ -47,9 +47,9 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         <?php } else { ?>
             <h1>Bienvenido! Loguéate</h1>
             <form action="login.php" method="post">
-                Nombre: <input type="text" name="nombre" required>
-                Email: <input type="email" name="email" required>
-                Passw: <input type="password" name="password" required>
+                Nombre: <input type="text" name="nombre" >
+                Email: <input type="email" name="email" >
+                Passw: <input type="password" name="password" >
                 <input type="submit" value="Enviar">
             </form>
             <a href="login.php?logout=true">

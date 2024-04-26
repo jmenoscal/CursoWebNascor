@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #escribiendo {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--URL BASE http://localhost/php_host/mysql/-->
+    <div id="escribiendo"></div>
+
+    <script>
+        let urlBase = "http://localhost/php_host/mysql/";
+
+        function dameDatos(item) {
+            return [item.id + ' | ' + item.titulo + ' | ' + item.texto + ' | ' + item.fecha + ' | ' + item.categoria + ' | ' + item.imagen + "<img src='" + urlBase + "Ejercicio_Mysql_con_require_db_utils/" + item.imagen + "' height='150'> <br>" + "<hr>"];
+        }
+        // ruta de carpeta principal C:\xampp\htdocs\php_host\mysql\Ejercicio_Mysql_con_require_db_utils
+        //  html += "<img src='" + urlBase + "Ejercicio_Mysql_con_require_db_utils/" + datos[i].imagen + "' height='150'> <br>";
+
+        function bucle(datos) {
+            let elDiv = document.getElementById("escribiendo");
+            let html = datos.map(dameDatos);
+            console.log(datos);
+
+            elDiv.innerHTML = html;
+        }
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function (jSon) {
+            if (this.readyState == 4 && this.status == 200) {
+                // document.getElementById("escribiendo").innerHTML = this.responseText;
+                // Bucle.(
+                let datos = JSON.parse(this.responseText);
+                bucle(datos);
+            }
+        }
+        //<!--URL API http://localhost/php_host/mysql/API/select.php -->
+        xmlhttp.open("GET", urlBase + "/API/select.php", true);
+        xmlhttp.send();
+    </script>
+</body>
+
+</html>

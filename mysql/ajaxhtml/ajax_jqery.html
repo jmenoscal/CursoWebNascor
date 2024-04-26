@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API JQERY</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #escribiendo {
+            font-size: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+
+        .imagen {
+            height: 150px;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!--URL BASE http://localhost/php_host/mysql/-->
+    <div id="escribiendo"></div>
+
+    <script>
+        let urlBase = "http://localhost/php_host/mysql/";
+        //jquery Ajax Each
+        $.get(urlBase + "/API/select.php", function(datos){
+          let html = '<table>'; // Define la variable html
+          html += '<tr><th>ID</th><th>Título</th><th>Texto</th><th>Fecha</th><th>Categoría</th><th>Imagen</th></tr>';
+          $.each(datos, function(){
+               html += '<tr>';
+               html += '<td>' + this.id + '</td>';
+               html += '<td>' + this.titulo + '</td>';
+               html += '<td>' + this.texto + '</td>';
+               html += '<td>' + this.fecha + '</td>';
+               html += '<td>' + this.categoria + '</td>';
+               //html += "<td><img src='" + urlBase + "Ejercicio_Mysql_con_require_db_utils/" + this.imagen + "' height='150'></td>";
+               html += "<td><img class='imagen' src='" + urlBase + "Ejercicio_Mysql_con_require_db_utils/" + this.imagen + "'></td>";
+
+               html += '</tr>';
+          })
+          html += '</table>';
+          $('#escribiendo').html(html);
+       })
+
+    </script>
+</body>
+
+</html>
+
+
+<!--EJERCICIO ORIGINAL
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API JQERY</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        #escribiendo {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+   
+    <div id="escribiendo"></div>
+
+    <script>
+        let urlBase = "http://localhost/php_host/mysql/";
+        //jquery Ajax Each
+        $.get(urlBase + "/API/select.php", function(datos){
+          let html = ''; // Define la variable html
+          $.each(datos, function(){
+               html += "<img src='" + urlBase + "Ejercicio_Mysql_con_require_db_utils/" + this.imagen + "' height='150'> <br>";
+               html += this.id + ' | ';
+               html += this.titulo + ' | ';
+               html += this.texto + ' | ';
+               html += this.fecha + ' | ';
+               html += this.categoria + '<hr>';
+          })
+          $('#escribiendo').html(html);
+       })
+
+    </script>
+</body>
+
+</html>
+-->

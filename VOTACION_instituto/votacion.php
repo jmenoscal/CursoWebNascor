@@ -1,0 +1,78 @@
+<?php
+
+if (!isset($_COOKIE["encuesta"]))
+setcookie("encuesta",$_POST["op"],time()+20);
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ca">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<p align="left"> <font color="orange" size="3" face="Times New Roman"><br><h4>Crees que el barça ganará la liga</h4></font></p>
+<?php
+if (isset($_COOKIE["encuesta"]))
+	echo "Ya has botado, inentalo mas tarde";
+else{
+echo "Gracias por tu voto. Has votado " . $_POST["op"];
+
+?>
+
+<?php
+
+$archivo1 = "si.txt";           // Nombramos la variable $archivo1 y 2 como el nombre de los ficheros
+$archivo2 = "no.txt";
+
+$abre1 = fopen($archivo1, "r");    // aqui abrimon los ficheros en modo de lectura
+$abre2 = fopen($archivo2, "r");    
+
+$total1 = fread($abre1, filesize($archivo1)+1);   // aqui lees los archivos
+$total2 = fread($abre2, filesize($archivo2)+1);   // (recuerda agregar otras opciones si las pusiste)
+
+
+fclose($abre1);     // aqui cerramos los ficheros   
+fclose($abre2);     
+
+
+
+if($_POST['op']=="si")                            // aqui vemos la opcion del usuario
+{
+  $abre1 = fopen($archivo1, "w");       // abrimos el archivo en modo de escritura  
+  $total1=$total1+1;                    // sumamos 1
+  $grabar1 = fwrite($abre1, $total1);   // escribimos el nuevo valor    
+
+  fclose($abre1);                       // cerramos el archivo
+}   
+
+
+else if($_POST['op']=="no")                       
+{
+
+  $abre2 = fopen($archivo2, "w");       
+  $total2=$total2+1;                    
+  $grabar2 = fwrite($abre2, $total2);
+
+  fclose($abre2);
+}
+
+       
+$votos=$total1+$total2;   //  si implementariamos mas opciones las sumariamos aquí
+
+
+$por1=$total1*100/$votos;   // los porcentajes (RECUERDA LOS DATOS AGREGADOS)
+$por1=intval ( $por1 ,10);
+
+$por2=$total2*100/$votos;
+$por2=intval ( $por2 ,10);
+
+
+} //cierras el else
+
+?>
+
+<p><a href="inicio.php" style="color: green; text-decoration: underline">Volver a votar</a></p>
+</body>
+</html>
+

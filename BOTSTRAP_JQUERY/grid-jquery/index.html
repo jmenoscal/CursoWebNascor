@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            width: 70%;
+            padding-top: 15vh;
+            margin-left: 15%;
+        }
+
+        .celda {
+            float: left;
+            width: 30%;
+            height: 20vh;
+            border: 1px solid black;
+        }
+
+        img {
+            max-width: 100%
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+
+        <div id="0" class="celda"><img src="https://cdn.pixabay.com/photo/2023/11/20/10/40/vietnam-8400803_1280.jpg">
+        </div>
+        <div id="1" class="celda"></div>
+        <div id="2" class="celda"></div>
+        <div id="3" class="celda"><span>Hola Mundo</span></div>
+        <div id="4" class="celda"></div>
+        <div id="5" class="celda"></div>
+        <div id="6" class="celda"></div>
+        <div id="7" class="celda"></div>
+        <div id="8" class="celda"></div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            
+            $('#1').css(
+                {
+                    'background-color': 'rgb(29, 179, 158)',
+                    'border': '6px solid green'
+                }
+            )
+            $('#0').click(function () {
+                let html = $('#0').html();
+                $('#8').html(html);
+            })
+            $("#1").hover(function () {
+                $(this).css(
+                    {
+                        'background-color': 'rgb(29, 179, 000)',
+                        'border': '1px solid green'
+                    }
+                )
+            })
+        })
+    </script>
+</body>
+
+</html>

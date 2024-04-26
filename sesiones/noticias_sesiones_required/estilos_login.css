@@ -1,0 +1,57 @@
+.login-form, .register-form {
+    width: 20%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #007BFF; /* Borde azul */
+    border-radius: 10px;
+    background-color: #fafafa;
+}
+
+.login-form input[type="text"],
+.login-form input[type="email"],
+.login-form input[type="password"],
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.submit-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF; /* Botón azul */
+    color: #fff;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #0056b3; /* Cambia a un tono de azul más oscuro cuando se pasa el ratón por encima */
+}
+
+body { 
+     background  : #007BFF; 
+     color   : black; 
+     font-size   : 18 ;   
+    text-align: center;
+}
+
+/* Aquí empiezan las consultas de medios para pantallas móviles */
+@media screen and (max-width: 768px) {
+    .login-form, .register-form {
+        width: 80%; /* Aumenta el ancho del formulario para móviles */
+    }
+
+    .login-form input[type="text"],
+    .login-form input[type="email"],
+    .login-form input[type="password"],
+    .register-form input[type="text"],
+    .register-form input[type="email"],
+    .register-form input[type="password"] {
+        width: 90%; /* Aumenta el ancho de los campos de entrada para móviles */
+    }
+}

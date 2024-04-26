@@ -1,0 +1,9 @@
+    $servidor = "localhost";
+    $usuario = "usuario_erp";
+    $password = "servitec27";
+    $database = "noticias";
+
+
+tablas : 
+noticia 
+usuario

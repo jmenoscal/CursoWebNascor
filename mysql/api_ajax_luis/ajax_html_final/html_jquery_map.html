@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map y arrows</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div id="escribiendo"></div>
+    <script>
+        function dameDatos(item) {
+            return [item.id,", " + item.titulo,", " + item.texto,", " + item.fecha,", " + item.categoria,", " + item.imagen + "<hr>"];
+       }
+        let html = "";
+        let urlBase = "http://localhost:8888/PHP-curso-nascor-ifcd0210/MySQL/";
+        $.get(urlBase + "/api/select.php", function(datos){
+          // datos.map(dameDatos);
+           $('#escribiendo').html(datos.map(dameDatos));
+        })
+    </script>
+</body>
+</html>

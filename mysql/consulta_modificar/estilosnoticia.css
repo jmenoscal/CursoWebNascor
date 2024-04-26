@@ -1,0 +1,139 @@
+body {
+    display: flex;
+    flex-direction: column; /* Organiza los contenedores verticalmente */
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Estilos para el contenedor del cuadro */
+.cuadro {
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    margin-bottom: 20px; /* Margen en la parte inferior */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto de hover */
+.cuadro:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el texto dentro del cuadro */
+.texto {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.contenedor-noticia {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* A la izquierda */
+    justify-content: center;
+    width: 45%; /* Menor ancho para permitir margen */
+    border: 5px solid;
+    border-image: linear-gradient(to right, lime, green) 1;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* ... Resto del código ... */
+
+.contenedor-modificar {
+    width: 45%; /* Menor ancho para permitir margen */
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+/* ... Resto del código ... */
+
+
+/* ... Resto del código ... */
+.title, .date, .text {
+    text-align: center;
+    transition: font-size 0.3s ease;
+}
+
+.title:hover, .date:hover, .text:hover {
+    font-size: 1.2em;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+}
+
+.image img {
+    width: 50%;
+    height: auto;
+    transition: all 0.3s ease;
+}
+
+.image img:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 600px) {
+    .contenedor-noticia {
+        width: 100%;
+    }
+}
+
+.contenedor-modificar h2 {
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+.contenedor-modificar label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.contenedor-modificar input[type="text"],
+.contenedor-modificar input[type="date"],
+.contenedor-modificar textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+.contenedor-modificar input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contenedor-modificar input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.contenedor-modificar a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}

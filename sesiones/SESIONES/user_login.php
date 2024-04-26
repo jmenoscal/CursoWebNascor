@@ -8,7 +8,7 @@ $error=$email="";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar credenciales
     $email = "usuario@email.es"; 
-    $password = "mipass"; 
+    $password = "123"; 
 
     if ($_POST["email"] == $email && $_POST["password"] == $password) {
         // Correcto, almacenar el nombre de usuario en la sesión
@@ -58,10 +58,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="submit" value="Entrar">
         </form>
     <?php 
-        // Cierro else
+       
         } 
 
-        //session_destroy();
+        echo '<a href="logout.php">Cerrar sesión</a>';
+   
+// logout.php
+//session_start();
+session_unset();
+session_destroy();
+
+header("Location: user_login.php");
+exit;
+
     ?>
 
 </body>

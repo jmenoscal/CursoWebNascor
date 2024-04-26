@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API JQERY</title>
+    <style>
+        #escribiendo {
+            font-size: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: left;
+        }
+        .imagen {
+            height: 150px;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DATOS OBTENIDOS</h1>
+    <!--URL BASE http://localhost/php_host/mysql/-->
+    <div id="escribiendo"></div>
+    <script>
+        let urlBase = "http://localhost/php_host/mysql/";
+        // Fetch API
+        fetch(urlBase + "/API/select.php")
+        .then(response => response.json())
+        .then(datos => {
+            let html = '<table>'; // Define la variable html
+            html += '<tr><th>ID</th><th>Título</th><th>Texto</th><th>Fecha</th><th>Categoría</th><th>Imagen</th></tr>';
+            datos.map(function(item){
+                html += '<tr>';
+                html += '<td>' + item.id + '</td>';
+                html += '<td>' + item.titulo + '</td>';
+                html += '<td>' + item.texto + '</td>';
+                html += '<td>' + item.fecha + '</td>';
+                html += '<td>' + item.categoria + '</td>';
+                html += "<td><img class='imagen' src='" + urlBase + "Ejercicio_Mysql_con_require_db_utils/" + item.imagen + "'></td>";
+                html += '</tr>';
+            })
+            html += '</table>';
+            document.getElementById('escribiendo').innerHTML = html;
+        })
+        .catch(error => console.error('Error:', error));
+    </script>
+</body>
+<script>
+    /*
+    Este código utiliza la API Fetch para obtener los datos.
+    La función then se utiliza para manejar la respuesta y convertirla en JSON. Luego, 
+    se utiliza otra función then para procesar los datos y generar el HTML.
+    La función map se utiliza para iterar sobre los datos. Finalmente, 
+    la función catch se utiliza para manejar cualquier error que pueda ocurrir durante la solicitud Fetch. 
+    Asegúrate de que la ruta de la imagen y el nombre del archivo estén correctos. 
+    Si el problema persiste, podría ser un problema con los permisos de la carpeta donde se almacenan las imágenes.
+    */    
+</script>
+</html>

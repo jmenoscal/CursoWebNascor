@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+    <style>
+        .contenido {
+            display: none;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100%;
+            height: 90%;
+        }
+
+        #ok {
+            background-color: aquamarine;
+        }
+
+        #ko {
+            background-color: goldenrod;
+        }
+
+        body {
+            padding: 40px
+        }
+
+        img {
+            max-height: 80vh;
+            width: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            Enhorabuena!!
+        </div>
+
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            Cuidado!
+        </div>
+    </div>
+    <button type="button" class="btn btn-success">Puedes darle</button>
+    <button type="button" class="btn btn-danger"> X piénsatelo antes de pulsar</button>
+ 
+      <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+      
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/la.jpg" alt="Los Angeles">
+          </div>
+          <div class="carousel-item">
+            <img src="img/chicago.jpg" alt="Chicago">
+          </div>
+          <div class="carousel-item">
+            <img src="img/ny.jpg" alt="New York">
+          </div>
+        </div>
+      
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      
+      </div>
+
+
+
+    <div class="modal fade" id="login">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Modal Heading</h4>
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <form action="#">
+                    <div class="form-group">
+                      <label for="email">Email:</label>
+                      <input type="email" class="form-control" placeholder="Enter email" id="email">
+                    </div>
+                    <div class="form-group">
+                      <label for="pwd">Password:</label>
+                      <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+                    </div>
+                    <h2>Demuestra que eres un humano</h2>
+                    <div class="form-group">
+                        <label for="sum">Suma 5+9</label>
+                        <input type="number" class="form-control" placeholder="suma..." id="sum">
+                      </div>
+                    <div class="form-group form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" required> Acepto
+                      </label>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button id="butt" type="button" class="btn btn-success" data-dismiss="modal">Enviar</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+   <script>
+            $(function () {
+
+           
+                 $('#login').modal('show');
+                 $("#login").on("hidden.bs.modal", function () {
+                     submForm();
+                 });
+                 function submForm() {
+                     const resCorrecto = 14;
+                     const usuario = 'yo@tu.es';
+                     const pass = '123456'
+                     let suma = $('#sum').val();
+                     let user = $('#email').val();
+                     let password = $('#pwd').val();
+                     if (suma == resCorrecto && user == usuario && password == pass) {
+                       //  alert('correcto')
+                     } else if (suma != resCorrecto){
+                         $('#login').modal('show');
+                         // Añadir Mensaje de error suma
+                     } else{
+                         $('#login').modal('show');
+                         // Añadir Mensaje de error email o password
+                     }
+                 }
+                
+                 $('.contenido').on('click', function () {
+                     $(this).hide(500);
+                 })
+     
+             })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map y arrows</title>
+    <style>
+        .container {
+          border: 2px solid #ccc;
+          border-radius: 10px;
+          padding: 20px;
+          max-width: 400px;
+          margin: 0 auto;
+        }
+        .title {
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+        .image {
+          max-width: 100%;
+          border-radius: 5px;
+          margin-bottom: 10px;
+        }
+        .date {
+          color: #666;
+          font-size: 14px;
+          margin-bottom: 10px;
+        }
+        .text {
+          font-size: 16px;
+          line-height: 1.5;
+        }
+      </style>
+</head>
+
+<body>
+    <div id="escribiendo"></div>
+
+    <script>
+        function dameDatos(item) {
+            return [
+                `   <div class="container">
+                    <div class="title">${item.titulo}</div>
+                    <img class="image" src="${item.imagen}" alt="Descripción de la imagen">
+                    <div class="date">${item.fecha}</div>
+                    <div class="text">
+                        ${item.texto}
+                    </div>
+                    </div> "<hr>"
+                `];
+        }
+
+        async function positivo(response) {
+            let datos = await response.json();
+            document.getElementById("escribiendo").innerHTML = datos.map(dameDatos);
+        }
+
+        function errDatos(err) {
+            console.log(err);
+        }
+        let html = "";
+        let urlBase = "http://localhost:8888/PHP-curso-nascor-ifcd0210/MySQL/";
+        fetch(urlBase + "api/select.php").
+            then(positivo).
+            catch(errDatos);
+    </script>
+</body>
+
+</html>

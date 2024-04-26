@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid jQuery</title>
+    <style>
+        #main {
+            width: 70%;
+            margin-left: 15%;
+
+            height: 70vh;
+            margin-top: 15vh;
+        }
+
+        .celda {
+            border: 1px solid #ccc;
+            width: 31%;
+            height: 22vh;
+            float: left;
+            min-width: 200px;
+        }
+
+        #a0 {
+            background-color: aquamarine;
+        }
+
+        #a1 {
+            background-color: blueviolet;
+        }
+
+        #a2 {
+            background-color: chocolate;
+        }
+
+        img {
+            max-width: 100%;
+            height: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="main">
+        <div class="celda" id="a0"></div>
+        <div class="celda" id="a1"></div>
+        <div class="celda" id="a2"></div>
+        <div class="celda" id="a3"><img src="img/_MG_0021.jpg"></div>
+        <div class="celda" id="a4"></div>
+        <div class="celda" id="a5"></div>
+        <div class="celda" id="a6"></div>
+        <div class="celda" id="a7"></div>
+        <div class="celda" id="a8"></div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            let css='';
+            // Guardamos el background original
+            css = $('#a0').css('background-color');
+            $('#a0').hover(function () {
+                // Le damos otro background css
+                
+                $(this).css({
+                    'background-color': 'green',
+                    'border': '1px solid red'
+                })
+                
+            })
+          
+            $('#a0').on('mouseout', function () {
+                // devolvemos el background original
+                $(this).css('background-color',css);
+            })
+// En este caso llamamos al evento copn .on()- 
+// Podr´ñiamos abrlo llamado con la función .click()
+            $('#a3').on('click', function () {
+                let html = $(this).html();
+                $('#a8').html(html);
+            })
+        })
+    </script>
+</body>
+
+</html>

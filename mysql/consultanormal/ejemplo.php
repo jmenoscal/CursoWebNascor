@@ -2,7 +2,7 @@
 
 $servidor ="localhost";
 $usuario="usuario_erp";
-$password="servitec";
+$password="servitec27";
 
 $conexion = mysqli_connect ($servidor, $usuario, $password)
    or die ("No se puede conectar con el servidor");
