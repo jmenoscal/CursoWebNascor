@@ -6,7 +6,7 @@
 	<title></title>
 </head>
 <body>
-<h1>PAGINA DE PRUEBAS DE CODIGOS PHP </h1>
+<h1>PAGINA DE PRUEBAS DE CODIGOS PHP ok </h1>
 <?php
 
 echo "Hello World! Bienvenido portal de prueba de codigos: <br> <br>";
